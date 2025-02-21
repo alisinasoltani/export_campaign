@@ -12,12 +12,11 @@ import {
 const Navbar = () => {
   return (
     <div className="flex flex-row-reverse justify-between items-center w-full px-8 py-4 irsans font-bold shadow-lg">
-        <div className="flex flex-row-reverse justify-start items-center gap-4">
+        <div className="flex flex-row-reverse justify-start items-center gap-6">
             <Image src={logo} width={120} alt="export campaign logo" />
-            <h3></h3>
             <DropdownMenu>
                 <DropdownMenuTrigger>صادرات</DropdownMenuTrigger>
-                <DropdownMenuContent className="px-4 py-4 text-right rounded-xl" style={{ direction: 'rtl' }}>
+                <DropdownMenuContent className="px-4 py-4 text-right rounded-xl bg-white" style={{ direction: 'rtl' }}>
                     <DropdownMenuItem className="py-2">آموزش صادرات</DropdownMenuItem>
                     <DropdownMenuItem className="py-2">ایده های صادراتی</DropdownMenuItem>
                     <DropdownMenuItem className="py-2">اورژانس صادراتی</DropdownMenuItem>

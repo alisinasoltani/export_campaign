@@ -10,3 +10,9 @@
 .irsans {
   font-family: "irsans" !important;
 }
+
+.swiper-button-prev:after, .swiper-button-next:after {
+  font-size: 35px !important;
+  color: white !important;
+  font-weight: 600;
+}
