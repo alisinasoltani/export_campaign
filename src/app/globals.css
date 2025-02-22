@@ -2,6 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+@media only screen and (width >= 40rem) {
+  .service-title::before, .service-title::after {
+    content: '';
+    width: 8rem;
+    height: 0.2rem;
+    background-color: #CF3828;
+    position: relative;
+    top: 20px;
+  }
+} 
+@media only screen and (width >= 48rem) {
+  .service-title::before, .service-title::after {
+    content: '';
+    width: 16rem;
+    height: 0.2rem;
+    background-color: #CF3828;
+    position: relative;
+    top: 20px;
+  }
+  .service-title h2 {
+    @apply text-3xl !important;
+  }
+}
+@media only screen and (width >= 64rem) {
+  .service-title::before, .service-title::after {
+    content: '';
+    width: 16rem;
+    height: 0.2rem;
+    background-color: #CF3828;
+    position: relative;
+    top: 20px;
+  }
+  .service-title h2 {
+    @apply text-3xl !important;
+  }
+}
+
 @font-face {
   font-family: "irsans";
   src: url("../../public/fonts/irsans.ttf");
@@ -16,3 +53,12 @@
   color: white !important;
   font-weight: 600;
 }
+
+/* .service-title::before, .service-title::after {
+  content: '';
+  width: 16rem;
+  height: 0.2rem;
+  background-color: #CF3828;
+  position: relative;
+  top: 20px;
+} */
