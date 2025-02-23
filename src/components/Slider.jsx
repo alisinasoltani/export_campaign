@@ -10,7 +10,7 @@ import 'swiper/css/navigation';
 
 const Slider = () => {
   return (
-    <div>
+    <div className="pt-[5rem]">
         <Swiper className="w-full" navigation={true} modules={[Navigation]}>
             <SwiperSlide>
               <Image src={slide1} alt="slide one" />

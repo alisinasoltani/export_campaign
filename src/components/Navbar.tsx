@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react";
 import Image from "next/image";
 import logo from "@/app/favicon.ico";
 import search from "@/../public/icons/search.svg";
@@ -8,28 +11,110 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import Drawer from '@mui/material/Drawer';
+import Button from '@mui/material/Button';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import Accordion from '@mui/material/Accordion';
+import AccordionActions from '@mui/material/AccordionActions';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const Navbar = () => {
-  return (
-    <div className="flex flex-row-reverse justify-between items-center w-full px-8 py-4 irsans font-bold shadow-lg">
-        <div className="flex flex-row-reverse justify-start items-center gap-6">
-            <Image src={logo} width={120} alt="export campaign logo" />
-            <DropdownMenu>
-                <DropdownMenuTrigger>صادرات</DropdownMenuTrigger>
-                <DropdownMenuContent className="px-4 py-4 text-right rounded-xl bg-white" style={{ direction: 'rtl' }}>
-                    <DropdownMenuItem className="py-2">آموزش صادرات</DropdownMenuItem>
-                    <DropdownMenuItem className="py-2">ایده های صادراتی</DropdownMenuItem>
-                    <DropdownMenuItem className="py-2">اورژانس صادراتی</DropdownMenuItem>
-                    <DropdownMenuItem className="py-2">خدمات صادراتی</DropdownMenuItem>
-                </DropdownMenuContent>
-            </DropdownMenu>
-            <h3>آزمون آنلاین</h3>
-            <h3>عصرانه</h3>
-            <h3>برند ملی</h3>
-            <h3>سوالات متداول</h3>
-            <h3>درباره ما</h3>
+    const [open, setOpen] = useState(false);
+    const toggleDrawer = (newOpen: boolean) => () => {
+        setOpen(newOpen);
+    };
+    return (
+    <div className="w-full flex flex-row-reverse justify-between items-center md:w-full px-8 py-2 irsans font-bold shadow-lg fixed top-0 z-[1000] bg-white">
+        <div className="w-full flex flex-row-reverse justify-between gap-8">
+            <Image src={logo} width={100} alt="export campaign logo" />
+            <Button className="md:hidden flex" onClick={toggleDrawer(true)}>Open drawer</Button>
+            <Drawer open={open} onClose={toggleDrawer(false)}>
+                <List>
+                    <ListItem disablePadding>
+                        <Accordion style={{ boxShadow: 'none' }}>
+                            <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1-content"
+                            id="panel1-header">
+                            صادرات
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <List>
+                                    <ListItem>
+                                        <ListItemButton>
+                                        آموزش صادرات
+                                        </ListItemButton>
+                                    </ListItem>
+                                    <ListItem>
+                                        <ListItemButton>
+                                        ایده های صادراتی
+                                        </ListItemButton>
+                                    </ListItem>
+                                    <ListItem>
+                                        <ListItemButton>
+                                        اورژانس صادراتی
+                                        </ListItemButton>
+                                    </ListItem>
+                                    <ListItem>
+                                        <ListItemButton>
+                                        خدمات صادراتی
+                                        </ListItemButton>
+                                    </ListItem>
+                                </List>
+                            </AccordionDetails>
+                        </Accordion>
+                    </ListItem>
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                            <h3>آزمون آنلاین</h3>
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                            <h3>عصرانه</h3>
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                            <h3>برند ملی</h3>
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                            <h3>سوالات متداول</h3>
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                            <h3>درباره ما</h3>
+                        </ListItemButton>
+                    </ListItem>
+                </List>
+            </Drawer>
+            <div className="md:flex hidden md:flex-row-reverse md:justify-start md:items-center md:gap-6">
+                <DropdownMenu>
+                    <DropdownMenuTrigger>صادرات</DropdownMenuTrigger>
+                    <DropdownMenuContent className="px-4 py-4 text-right rounded-xl bg-white" style={{ direction: 'rtl' }}>
+                        <DropdownMenuItem className="py-2">آموزش صادرات</DropdownMenuItem>
+                        <DropdownMenuItem className="py-2">ایده های صادراتی</DropdownMenuItem>
+                        <DropdownMenuItem className="py-2">اورژانس صادراتی</DropdownMenuItem>
+                        <DropdownMenuItem className="py-2">خدمات صادراتی</DropdownMenuItem>
+                    </DropdownMenuContent>
+                </DropdownMenu>
+                <h3>آزمون آنلاین</h3>
+                <h3>عصرانه</h3>
+                <h3>برند ملی</h3>
+                <h3>سوالات متداول</h3>
+                <h3>درباره ما</h3>
+            </div>
         </div>
-        <div className="flex flex-row gap-4 justify-center items-center">
+        <div className="md:flex hidden flex-row gap-4 justify-center items-center">
             <button type="button" className="bg-[#E6A817] hover:shadow-lg transition-all duration-500 px-4 py-2 rounded-xl flex flex-row items-center justify-center gap-4">
                 <Image src={road} width={32} alt="road button" />
                 شروع مسیر
@@ -39,7 +124,7 @@ const Navbar = () => {
             </button>
         </div>
     </div>
-  )
+    )
 }
 
 export default Navbar;
