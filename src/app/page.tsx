@@ -1,3 +1,4 @@
+import FAQ from "@/components/FAQ";
 import Navbar from "@/components/Navbar";
 import Services from "@/components/Services";
 import Slider from "@/components/Slider";
@@ -9,6 +10,7 @@ export default function Home() {
         <Navbar />
         <Slider />
         <Services />
+        <FAQ />
       </main>
     </div>
   );
