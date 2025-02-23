@@ -45,9 +45,42 @@
   font-family: "irsans";
   src: url("../../public/fonts/irsans.ttf");
 }
+@font-face {
+  font-family: "yekan_plus";
+  src: url("../../public/fonts/BYekan+.ttf");
+}
+@font-face {
+  font-family: "yekan_plus_bold";
+  src: url("../../public/fonts/BYekan+Bold.ttf");
+}
+@font-face {
+  font-family: "yekan";
+  src: url("../../public/fonts/Yekan.ttf");
+}
+@font-face {
+  font-family: "iransans_2";
+  src: url("../../public/fonts/ir_sans.ttf");
+}
+@font-face {
+  font-family: "iransans_2_bold";
+  src: url("../../public/fonts/IRAN\ Sans\ Bold.ttf");
+}
+@font-face {
+  font-family: "teraffic";
+  src: url("../../public/fonts/0\ Traffic.TTF");
+}
+@font-face {
+  font-family: "yekan_2";
+  src: url("../../public/fonts/0\ Yekan.TTF");
+}
 
 .irsans {
-  font-family: "irsans" !important;
+  /* font-family: "yekan" !important; */
+  /* font-family: "yekan_2" !important; */
+  font-family: "irsans_2" !important;
+  /* font-family: "irsans_2_bold" !important; */
+  /* font-family: "teraffic" !important; */
+  /* font-family: "irsans" !important; */
 }
 
 .swiper-button-prev:after, .swiper-button-next:after {
