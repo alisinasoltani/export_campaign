@@ -104,6 +104,12 @@
   color: #CF3828;
 }
 
+.swiper-button-next, .swiper-button-prev {
+  color: #CF3828 !important;
+}
+.swiper-button-next::after, .swiper-button-prev::after {
+  color: #CF3828 !important;
+}
 
 @layer base {}
 
