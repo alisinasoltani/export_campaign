@@ -16,13 +16,11 @@ import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
 import Accordion from '@mui/material/Accordion';
-import AccordionActions from '@mui/material/AccordionActions';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import menu_icon from "@/../public/icons/menu.svg";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
@@ -31,9 +29,11 @@ const Navbar = () => {
     };
     return (
     <div className="w-full flex flex-row-reverse justify-between items-center md:w-full px-8 py-2 irsans font-bold shadow-lg fixed top-0 z-[1000] bg-white">
-        <div className="w-full flex flex-row-reverse justify-between gap-8">
+        <div className="md:max-w-fit w-full flex flex-row-reverse justify-between gap-8">
             <Image src={logo} width={100} alt="export campaign logo" />
-            <Button className="md:hidden flex" onClick={toggleDrawer(true)}>Open drawer</Button>
+            <Button className="md:hidden flex" onClick={toggleDrawer(true)} disableRipple={true}>
+                <Image src={menu_icon} alt="expand menu icon" width={24} />
+            </Button>
             <Drawer open={open} onClose={toggleDrawer(false)}>
                 <List>
                     <ListItem disablePadding>
