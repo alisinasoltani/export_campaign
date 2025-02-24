@@ -111,6 +111,13 @@
   color: #CF3828 !important;
 }
 
+.login_background {
+  background-image: url('../../public/images/login/login_bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 @layer base {}
 
 
