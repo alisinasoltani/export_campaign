@@ -72,7 +72,7 @@ function TabPanel(props: TabPanelProps) {
   const { children, value, index, fontSize, fontFamily, ...other } = props;
   return (
     <div
-      className='md:max-w-[calc(100vw-20rem)] pt-8 pb-[6rem] text-pretty'
+      className='md:max-w-[calc(100vw-20rem)] pt-8 pb-[2.5rem] text-pretty'
       style={{ direction: 'rtl', textAlign: 'right', fontSize: fontSize, lineHeight: 1.75, fontFamily: fontFamily }}
       role="tabpanel"
       hidden={value !== index}
@@ -134,13 +134,15 @@ const page = () => {
     <ThemeProvider theme={theme}>
       <div className="w-screen h-screen flex flex-col items-center text-[#000000] bg-[#E0E0E0] pr-[3rem]
       pt-[2rem] overflow-x-hidden overflow-y-scroll transition-all duration-700" style={{ backgroundColor: background_colors_options[selectedStyle.background_color_index].color, color: background_colors_options[selectedStyle.background_color_index].type == "dark" ? "#F5F5F5" : "#000000" }}>
-        <TitleTabs value={value} handleChange={handleChange} color={background_colors_options[selectedStyle.background_color_index].type == "dark" ? "#ffffff" : "#000000" } 
-        titles={[
-          "مقدمه", "فلسفه پویش", "روش های رسیدن به هدف", 
-          "شبکه اجتماعی پویش", "تجمیع توانمندی ها", "شتاب دهنده پویش", 
-          "برند ملی", "مخاطبین پویش"
-        ]} />
-        <div>
+        <div className='w-full flex flex-row justify-center items-end fixed top-0 pt-6 bg-[#ffffff] shadow-sm'>
+          <TitleTabs value={value} handleChange={handleChange} color={background_colors_options[selectedStyle.background_color_index].type == "dark" ? "#ffffff" : "#000000" } 
+          titles={[
+            "مقدمه", "فلسفه پویش", "روش های رسیدن به هدف", 
+            "شبکه اجتماعی پویش", "تجمیع توانمندی ها", "شتاب دهنده پویش", 
+            "برند ملی", "مخاطبین پویش"
+          ]} />
+        </div>
+        <div className='pt-[3rem]'>
           <TabPanel value={value} index={0} fontSize={selectedStyle.font_size} fontFamily={font_families[selectedStyle.font_index].css_class}>
           بیان خاطرات همواره لذت بخش نیست گاهی تلخی آن گلویت را سخت می فشارد ولی مرور همان خاطرات تلخ، شیرین و حلاوت بخش است اگر آن را با تو به اشتراک بگذارم تا شاید تو تکرارشان نکنی و یا شاید آگاهانه تر از من تجربه شان کنی.
           <br />
@@ -202,7 +204,7 @@ const page = () => {
           باید سفره خود را در برابر دیگران پهن کنیم. معضل اصلی ما بیکاری است و باید در این راستا قدم برداریم. اگر دانشی داریم، توانمندی داریم یا سرمایه ای داریم در راستای توسعه، در راستای اشتغال و در راستای ساختن اقتصاد کشور عزیزمان قرار دهیم که امروز از هر اقدامی، لازم تر و واجب تر است و باید حامی منافع ملی باشیم.
           </TabPanel>
           <TabPanel value={value} index={2} fontSize={selectedStyle.font_size} fontFamily={font_families[selectedStyle.font_index].css_class}>
-          نده از نقد صرف بیزارم، اگر نقد می کنیم باید مدل اجرایی داشته باشد و اگر قرار باشد کارآفرینی به روش صادرات را طراحی کنیم آیا خودمان را پشت زمان محدود مخفی کرده ایم؟ 
+          بنده از نقد صرف بیزارم، اگر نقد می کنیم باید مدل اجرایی داشته باشد و اگر قرار باشد کارآفرینی به روش صادرات را طراحی کنیم آیا خودمان را پشت زمان محدود مخفی کرده ایم؟ 
           پشت دولت ناکارآمد یا بی مدیریت آزاردهنده، خودمان را مخفی کرده ایم؟ خودمان را پشت تحریم ها مخفی کرده ایم؟ می گوییم با تحریم نمی شود کار کرد؟ بدون سرمایه نمی شود کار کرد؟ اما ما می گوییم می شود.
           <br />
           به همین منظور، تمرکز پویش ملی صادرات بر این مطلب است:
