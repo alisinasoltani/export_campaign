@@ -132,7 +132,7 @@ const page = () => {
   
   return (
     <ThemeProvider theme={theme}>
-      <div className="w-screen h-screen flex flex-col items-center text-[#000000] bg-[#E0E0E0] pr-[4rem]
+      <div className="w-screen h-screen flex flex-col items-center text-[#000000] bg-[#E0E0E0] pr-[3rem]
       pt-[2rem] overflow-x-hidden overflow-y-scroll transition-all duration-700" style={{ backgroundColor: background_colors_options[selectedStyle.background_color_index].color, color: background_colors_options[selectedStyle.background_color_index].type == "dark" ? "#F5F5F5" : "#000000" }}>
         <TitleTabs value={value} handleChange={handleChange} color={background_colors_options[selectedStyle.background_color_index].type == "dark" ? "#ffffff" : "#000000" } 
         titles={[
