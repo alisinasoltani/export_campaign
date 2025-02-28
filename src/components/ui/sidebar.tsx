@@ -472,11 +472,11 @@ export function SessionNavBar() {
         </motion.ul>
       </motion.div>
     </motion.div>
-    <div className="w-[100vw] md:hidden flex flex-row justify-between items-center">
+    <div className="w-[100vw] md:hidden flex flex-row justify-between items-center px-6 py-3">
       <Button onClick={toggleDrawer(true)}>
         <HiOutlineMenu />
       </Button>
-      <div className="flex flex-row justify-center items-center px-4 py-3">
+      <div className="flex flex-row justify-center items-center">
         <Image src={logo} width={80} alt="export campaign logo" />
       </div>
       <Drawer open={open} onClose={toggleDrawer(false)} sx={{ direction: 'rtl' }} anchor="right" >
