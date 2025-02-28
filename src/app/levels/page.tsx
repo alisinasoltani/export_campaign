@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import TitleTabs from '@/components/TitleTabs';
 import { color, fontfamily, TabPanelProps, selectedStyle } from "@/types";
@@ -93,10 +93,16 @@ const page = () => {
   const [selectedStyle, setSelectedStyle] = useState<selectedStyle>({
     background_color_index: 0,
     font_index: 0,
-    font_size: 22,
+    font_size: 16,
     line_height: 0
   });
-
+  useEffect(() => {
+    setSelectedStyle({
+      ...selectedStyle,
+      font_size: window.innerWidth >= 768 ? 22 : 16,
+    });
+  }, [])
+  
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
@@ -131,7 +137,7 @@ const page = () => {
   
   return (
     <ThemeProvider theme={theme}>
-      <div className="w-screen h-screen flex flex-col items-center text-[#000000] bg-[#E0E0E0] pr-[3rem]
+      <div className="w-screen h-screen flex flex-col items-center text-[#000000] bg-[#E0E0E0] md:pr-[3rem] md:pl-0 pr-6 pl-6
       pt-[2rem] overflow-x-hidden overflow-y-scroll transition-all duration-700" style={{ backgroundColor: background_colors_options[selectedStyle.background_color_index].color, color: background_colors_options[selectedStyle.background_color_index].type == "dark" ? "#F5F5F5" : "#000000" }}>
         <div className='w-full flex flex-row justify-center items-end fixed md:top-0 top-[73px] md:pt-4 pt-0 bg-[#ffffff] shadow-sm'>
           <TitleTabs value={value} handleChange={handleChange} color={background_colors_options[selectedStyle.background_color_index].type == "dark" ? "#ffffff" : "#000000" } 
