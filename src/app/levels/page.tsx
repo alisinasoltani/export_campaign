@@ -101,7 +101,7 @@ const page = () => {
       ...selectedStyle,
       font_size: window.innerWidth >= 768 ? 22 : 16,
     });
-  }, [])
+  }, []);
   
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
