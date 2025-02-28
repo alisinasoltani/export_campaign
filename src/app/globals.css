@@ -127,6 +127,14 @@
   background-size: cover;
 }
 
+.css-cokf1l-MuiListItemIcon-root {
+  min-width: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+}
+
 @layer base {}
 
 

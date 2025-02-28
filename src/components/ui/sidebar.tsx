@@ -3,23 +3,7 @@
 import { cn } from "@/lib/utils";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
-import {
-  Blocks,
-  ChevronsUpDown,
-  FileClock,
-  GraduationCap,
-  Layout,
-  LayoutDashboard,
-  LogOut,
-  MessageSquareText,
-  MessagesSquare,
-  Plus,
-  Settings,
-  UserCircle,
-  UserCog,
-  UserSearch,
-} from "lucide-react";
+import { LayoutDashboard } from "lucide-react";
 import Image from "next/image";
 import logo from "@/../public/logo.png";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -27,15 +11,19 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { Separator } from "@/components/ui/separator";
 import { FaRegCircle } from "react-icons/fa";
+import { HiOutlineMenu } from "react-icons/hi";
+import { IoMdClose } from "react-icons/io";
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+// import Divider from '@mui/material/Divider';
+// import InboxIcon from '@mui/icons-material/MoveToInbox';
+// import MailIcon from '@mui/icons-material/Mail';
 
 const sidebarVariants = {
   open: {
@@ -85,18 +73,22 @@ const staggerVariants = {
 export function SessionNavBar() {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  const toggleDrawer = (newOpen: boolean) => () => {
+    setOpen(newOpen);
+  };
   return (
+    <div>
     <motion.div
       className={cn(
-        "sidebar fixed right-0 z-40 h-full shrink-0 border-r shadow-xl",
+        "sidebar md:block hidden fixed right-0 z-40 h-full shrink-0 border-r shadow-xl",
       )}
       initial={isCollapsed ? "closed" : "open"}
       animate={isCollapsed ? "closed" : "open"}
       variants={sidebarVariants}
       transition={transitionProps}
       onMouseEnter={() => setIsCollapsed(false)}
-      onMouseLeave={() => setIsCollapsed(true)}
-    >
+      onMouseLeave={() => setIsCollapsed(true)}>
       <motion.div
         className={`relative z-40 flex text-muted-foreground h-full shrink-0 flex-col bg-white dark:bg-black transition-all`}
         variants={contentVariants} style={{ direction: 'rtl' }}>
@@ -480,5 +472,201 @@ export function SessionNavBar() {
         </motion.ul>
       </motion.div>
     </motion.div>
+    <div className="w-[100vw] md:hidden flex flex-row justify-between items-center">
+      <Button onClick={toggleDrawer(true)}>
+        <HiOutlineMenu />
+      </Button>
+      <div className="flex flex-row justify-center items-center px-4 py-3">
+        <Image src={logo} width={80} alt="export campaign logo" />
+      </div>
+      <Drawer open={open} onClose={toggleDrawer(false)} sx={{ direction: 'rtl' }} anchor="right" >
+        <List>
+          <ListItem>
+            <ListItemButton className="flex h-1 flex-row justify-end items-center text-left" style={{ direction: 'rtl' }} disableRipple={true} onClick={toggleDrawer(false)}>
+              <ListItemIcon>
+                <IoMdClose />
+              </ListItemIcon>
+            </ListItemButton>
+          </ListItem>
+          <ListItem
+          className={cn("flex h-8 w-full flex-row items-center rounded-md px-2 py-1.5 transition hover:bg-muted hover:text-primary", 
+          pathname?.includes("dashboard") && "bg-muted text-blue-600" )}>
+            <ListItemButton>
+              <LayoutDashboard className="h-4 w-4" />{" "}
+              <p className="pr-2 text-sm font-medium">داشبورد</p>
+            </ListItemButton>
+          </ListItem>
+          <ListItem
+          className={cn("flex h-8 w-full flex-row items-center rounded-md px-2 py-1.5 transition hover:bg-muted hover:text-primary",
+          pathname?.includes("reports") && "bg-muted text-blue-600" )}>
+            <ListItemButton>
+              <FaRegCircle className="h-4 w-4" />{" "}
+              <div className="flex items-center gap-2">
+                <p className="pr-2 text-sm font-medium">
+                آشنایی با پویش ملی صادرات
+                </p>
+              </div>
+            </ListItemButton>
+          </ListItem>
+          <ListItem
+          className={cn("flex h-8 w-full flex-row items-center rounded-md px-2 py-1.5 transition hover:bg-muted hover:text-primary",
+          pathname?.includes("reports") && "bg-muted text-blue-600" )}>
+            <ListItemButton>
+              <FaRegCircle className="h-4 w-4" />{" "}
+              <div className="flex items-center gap-2">
+                <p className="pr-2 text-sm font-medium">
+                مقدمات صادراتی
+                </p>
+              </div>
+            </ListItemButton>
+          </ListItem>
+          <ListItem
+          className={cn("flex h-8 w-full flex-row items-center rounded-md px-2 py-1.5 transition hover:bg-muted hover:text-primary",
+          pathname?.includes("reports") && "bg-muted text-blue-600" )}>
+            <ListItemButton>
+              <FaRegCircle className="h-4 w-4" />{" "}
+              <div className="flex items-center gap-2">
+                <p className="pr-2 text-sm font-medium">
+                  گام 1
+                </p>
+              </div>
+            </ListItemButton>
+          </ListItem>
+          <ListItem 
+          className={cn("flex h-8 w-full flex-row items-center rounded-md px-2 py-1.5 transition hover:bg-muted hover:text-primary",
+          pathname?.includes("reports") && "bg-muted text-blue-600" )}>
+            <ListItemButton>
+              <FaRegCircle className="h-4 w-4" />{" "}
+              <div className="flex items-center gap-2">
+                <p className="pr-2 text-sm font-medium">
+                  گام 2
+                </p>
+              </div>
+            </ListItemButton>
+          </ListItem>
+          <ListItem
+          className={cn("flex h-8 w-full flex-row items-center rounded-md px-2 py-1.5 transition hover:bg-muted hover:text-primary", pathname?.includes("reports") && "bg-muted text-blue-600" )}>
+            <ListItemButton>
+              <FaRegCircle className="h-4 w-4" />{" "}
+              <div className="flex items-center gap-2">
+                <p className="pr-2 text-sm font-medium">
+                  گام 3
+                </p>
+              </div>
+            </ListItemButton>
+          </ListItem>
+          <ListItem
+            className={cn("flex h-8 w-full flex-row items-center rounded-md px-2 py-1.5 transition hover:bg-muted hover:text-primary",
+            pathname?.includes("reports") && "bg-muted text-blue-600")}>
+            <ListItemButton>
+              <FaRegCircle className="h-4 w-4" />{" "}
+              <div className="flex items-center gap-2">
+                <p className="pr-2 text-sm font-medium">
+                  گام 4
+                </p>
+              </div>
+            </ListItemButton>
+          </ListItem>
+          <ListItem
+          className={cn("flex h-8 w-full flex-row items-center rounded-md px-2 py-1.5 transition hover:bg-muted hover:text-primary",
+          pathname?.includes("reports") && "bg-muted text-blue-600")}>
+            <ListItemButton>
+              <FaRegCircle className="h-4 w-4" />{" "}
+              <div className="flex items-center gap-2">
+                <p className="pr-2 text-sm font-medium">
+                  گام 5
+                </p>
+              </div>
+            </ListItemButton>
+          </ListItem>
+          <ListItem
+          className={cn("flex h-8 w-full flex-row items-center rounded-md px-2 py-1.5 transition hover:bg-muted hover:text-primary",
+          pathname?.includes("reports") && "bg-muted text-blue-600")}>
+            <ListItemButton>
+              <FaRegCircle className="h-4 w-4" />{" "}
+              <div className="flex items-center gap-2">
+                <p className="pr-2 text-sm font-medium">
+                  گام 6
+                </p>
+              </div>
+            </ListItemButton>
+          </ListItem>
+          <ListItem
+          className={cn("flex h-8 w-full flex-row items-center rounded-md px-2 py-1.5 transition hover:bg-muted hover:text-primary",
+          pathname?.includes("reports") && "bg-muted text-blue-600")}>
+            <ListItemButton>
+              <FaRegCircle className="h-4 w-4" />{" "}
+              <div className="flex items-center gap-2">
+                <p className="pr-2 text-sm font-medium">
+                  گام 7
+                </p>
+              </div>
+            </ListItemButton>
+          </ListItem>
+          <ListItem
+          className={cn("flex h-8 w-full flex-row items-center rounded-md px-2 py-1.5 transition hover:bg-muted hover:text-primary",
+          pathname?.includes("reports") && "bg-muted text-blue-600")}>
+            <ListItemButton>
+              <FaRegCircle className="h-4 w-4" />{" "}
+              <div className="flex items-center gap-2">
+                <p className="pr-2 text-sm font-medium">
+                  روش های تحقیق بازار
+                </p>
+              </div>
+            </ListItemButton>
+          </ListItem>
+          <ListItem
+          className={cn("flex h-8 w-full flex-row items-center rounded-md px-2 py-1.5 transition hover:bg-muted hover:text-primary",
+          pathname?.includes("reports") && "bg-muted text-blue-600")}>
+            <ListItemButton>
+              <FaRegCircle className="h-4 w-4" />{" "}
+              <div className="flex items-center gap-2">
+                <p className="pr-2 text-sm font-medium">
+                  مقدمه ای بر اصول مذاکره
+                </p>
+              </div>
+            </ListItemButton>
+          </ListItem>
+          <ListItem
+          className={cn("flex h-8 w-full flex-row items-center rounded-md px-2 py-1.5 transition hover:bg-muted hover:text-primary",
+          pathname?.includes("reports") && "bg-muted text-blue-600")}>
+            <ListItemButton>
+              <FaRegCircle className="h-4 w-4" />{" "}
+              <div className="flex items-center gap-2">
+                <p className="pr-2 text-sm font-medium">
+                  صادرات را از کجا آغاز کنیم؟
+                </p>
+              </div>
+            </ListItemButton>
+          </ListItem>
+          <ListItem
+          className={cn("flex h-8 w-full flex-row items-center rounded-md px-2 py-1.5 transition hover:bg-muted hover:text-primary",
+          pathname?.includes("reports") && "bg-muted text-blue-600")}>
+            <ListItemButton>
+              <FaRegCircle className="h-4 w-4" />{" "}
+              <div className="flex items-center gap-2">
+                <p className="pr-2 text-sm font-medium">
+                  امنیت اطلاعات
+                </p>
+              </div>
+            </ListItemButton>
+          </ListItem>
+          <ListItem
+          className={cn("flex h-8 w-full flex-row items-center rounded-md px-2 py-1.5 transition hover:bg-muted hover:text-primary",
+          pathname?.includes("reports") && "bg-muted text-blue-600")}>
+            <ListItemButton>
+              <FaRegCircle className="h-4 w-4" />{" "}
+              <div className="flex items-center gap-2">
+                <p className="pr-2 text-sm font-medium">
+                  نمونه موردی صادرات
+                </p>
+              </div>
+            </ListItemButton>
+          </ListItem>
+          {/* <Separator className="w-full" /> */}
+        </List>
+      </Drawer>
+    </div>
+    </div>
   );
 }

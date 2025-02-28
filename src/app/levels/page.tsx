@@ -102,7 +102,6 @@ const page = () => {
   };
   const handleFontSizeChange = (event: any, new_value: number) => {
     event.preventDefault();
-    console.log(new_value);
     if (new_value > 40) {
       setSelectedStyle({
         ...selectedStyle,
@@ -134,7 +133,7 @@ const page = () => {
     <ThemeProvider theme={theme}>
       <div className="w-screen h-screen flex flex-col items-center text-[#000000] bg-[#E0E0E0] pr-[3rem]
       pt-[2rem] overflow-x-hidden overflow-y-scroll transition-all duration-700" style={{ backgroundColor: background_colors_options[selectedStyle.background_color_index].color, color: background_colors_options[selectedStyle.background_color_index].type == "dark" ? "#F5F5F5" : "#000000" }}>
-        <div className='w-full flex flex-row justify-center items-end fixed top-0 pt-6 bg-[#ffffff] shadow-sm'>
+        <div className='w-full flex flex-row justify-center items-end fixed md:top-0 top-[73px] md:pt-4 pt-0 bg-[#ffffff] shadow-sm'>
           <TitleTabs value={value} handleChange={handleChange} color={background_colors_options[selectedStyle.background_color_index].type == "dark" ? "#ffffff" : "#000000" } 
           titles={[
             "مقدمه", "فلسفه پویش", "روش های رسیدن به هدف", 
