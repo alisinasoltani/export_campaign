@@ -6,7 +6,7 @@ import { styled } from "@mui/material/styles";
 import { useState, useEffect } from 'react';
 
 const TitleTabs = ({ value, handleChange, titles, color }: { value: number, handleChange: any, titles: string[], color: string }) => {
-    const [windowSize, setWindowSize] = useState<number>(768);
+    const [windowSize, setWindowSize] = useState<number>(767);
       useEffect(() => {
         setWindowSize(window.innerWidth);
     }, []);
