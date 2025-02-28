@@ -73,11 +73,20 @@
   font-family: "yekan_2";
   src: url("../../public/fonts/0\ Yekan.TTF");
 }
+@font-face {
+  font-family: "nazanin";
+  src: url("../../public/fonts/0Nazanin.TTF");
+}
+@font-face {
+  font-family: "nazanin_bold";
+  src: url("../../public/fonts/0NazaninBold.TTF");
+}
 
 .irsans {
   /* font-family: "yekan" !important; */
   /* font-family: "yekan_2" !important; */
-  font-family: "irsans_2" !important;
+  /* font-family: "irsans_2" !important; */
+  font-family: "nazanin" !important;
   /* font-family: "irsans_2_bold" !important; */
   /* font-family: "teraffic" !important; */
   /* font-family: "irsans" !important; */
