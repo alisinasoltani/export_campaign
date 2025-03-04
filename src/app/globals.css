@@ -135,6 +135,11 @@
   align-items: center;
 }
 
+.footer {
+  background: rgb(23,23,23);
+  background: linear-gradient(180deg, rgba(23,23,23,1) 0%, #222222 79%);
+}
+
 @layer base {}
 
 
