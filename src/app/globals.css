@@ -92,6 +92,13 @@
   /* font-family: "irsans" !important; */
 }
 
+.nazanin {
+  font-family: "nazanin" !important;
+}
+.nazanin-bold {
+  font-family: "nazanin_bold" !important;
+}
+
 .swiper-button-prev:after, .swiper-button-next:after {
   font-size: 35px !important;
   color: white !important;
@@ -138,6 +145,24 @@
 .footer {
   background: rgb(23,23,23);
   background: linear-gradient(180deg, rgba(17,17,17,0) 0%, rgba(17,17,17,1) 25%) !important;
+}
+
+.service {
+  background: rgb(255,252,242);
+  background: linear-gradient(140deg, rgba(255,252,242,1) 0%, rgba(238,235,226,1) 40%);
+  box-shadow: rgba(0, 0, 0, 0.15) 2px -2px 3px 0px;
+}
+
+.service-btn::before {
+  content: '';
+  padding-block: 0.25rem;
+  background-color: #ffffff;
+  width: 7.2rem;
+  height: 3.8rem;
+  position: absolute;
+  left: -0.35rem;
+  top: -0.35rem;
+  border-radius: 0.6rem;
 }
 
 @layer base {}

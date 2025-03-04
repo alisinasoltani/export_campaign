@@ -25,4 +25,14 @@ interface selectedStyle {
     line_height: number
 }
 
-export type { color, fontfamily, TabPanelProps, selectedStyle };
+interface ServiceProps {
+    title: string;
+    subtitle: string;
+    description: string;
+    isNew: boolean;
+    img: string;
+    href: string;
+    btnTitle: string;
+}
+
+export type { color, fontfamily, TabPanelProps, selectedStyle, ServiceProps };
