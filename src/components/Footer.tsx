@@ -3,8 +3,6 @@
 import Image from "next/image";
 import location_icon from "@/../public/icons/location.svg";
 import bg from "@/../public/images/footer/footer_bg_5.png";
-// import bg from "@/../public/images/footer/footer_bg_2.png";
-// import bg from "@/../public/images/footer/footer_bg.png";
 import phone_icon from "@/../public/icons/phone.svg";
 import email_icon from "@/../public/icons/mail.svg";
 import whatsapp_icon from '@/../public/icons/whatsapp.svg';
@@ -14,6 +12,9 @@ import { Canvas } from "@react-three/fiber";
 import { Center, OrbitControls } from '@react-three/drei';
 import EarthNight from "@/components/3d/NightEarth";
 import EarthNight2 from "@/components/3d/NightEarth2";
+import WhatsappLogo from "@/components/3d/WhatsappLogo";
+import TelegramLogo from "@/components/3d/TelegramLogo";
+import InstagramLogo from "@/components/3d/InstagramLogo";
 
 const Footer = () => {
   return (
@@ -37,6 +38,11 @@ const Footer = () => {
                     تهران، خ ولیعصر، روبروی مسجد بلال، خ شهید مٌهری (امانیه)، پلاک 20
                     </h5>
                     <Image src={location_icon} width={32} alt="location address" />
+                    {/* <div className="flex items-center justify-center w-[32px] h-[32px]">
+                        <Canvas>
+                            <Center></Center>
+                        </Canvas>
+                    </div> */}
                 </div>
                 <div className="flex flex-row gap-2">
                     <h5 className="irsans font-bold text-lg">
@@ -54,14 +60,41 @@ const Footer = () => {
                     <h5 className="irsans text-lg">
                     (فقط پیام کتبی) 09101112867
                     </h5>
-                    <Image src={whatsapp_icon} width={30} alt="location address" />
+                    {/* <Image src={whatsapp_icon} width={30} alt="location address" /> */}
+                    <div className="flex items-center justify-center w-[36px] h-[36px]">
+                            <Canvas>
+                                <Center>
+                                    <WhatsappLogo scale={1} />
+                                    <ambientLight intensity={1} position={[1,1,1]} />
+                                </Center>
+                                <OrbitControls minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} enableZoom={false}  />
+                            </Canvas>
+                        </div>
                 </button>
                 <div className="flex flex-row gap-3">
                     <button type="button" className="flex flex-row justify-center items-center gap-2 text-white px-2 py-2 rounded-full" style={{ background: 'linear-gradient(215deg, rgba(64,93,230,1) 15%, rgba(91,81,216,1) 34%, rgba(131,58,180,1) 60%, rgba(245,96,64,1) 100%)' }}>
-                        <Image src={instagram_icon} width={36} alt="location address" />
+                        {/* <Image src={instagram_icon} width={36} alt="location address" /> */}
+                        <div className="flex items-center justify-center w-[36px] h-[36px]">
+                            <Canvas>
+                                <Center>
+                                    <InstagramLogo scale={1} />
+                                    <ambientLight intensity={1} position={[1,1,1]} />
+                                </Center>
+                                <OrbitControls minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} enableZoom={false}  />
+                            </Canvas>
+                        </div>
                     </button>
                     <button type="button" className="flex flex-row justify-center items-center gap-2 text-white px-2 py-2 rounded-full" style={{ background: 'linear-gradient(50deg, rgba(34,158,217,1) 0%, rgba(42,171,238,1) 100%)' }}>
-                        <Image src={telegram_icon} width={36} alt="location address" />
+                        {/* <Image src={telegram_icon} width={36} alt="location address" /> */}
+                        <div className="flex items-center justify-center w-[36px] h-[36px]">
+                            <Canvas>
+                                <Center>
+                                    <TelegramLogo scale={1} />
+                                    <ambientLight intensity={1} position={[1,1,1]} />
+                                </Center>
+                                <OrbitControls minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} enableZoom={false}  />
+                            </Canvas>
+                        </div>
                     </button>
                 </div>
             </div>
