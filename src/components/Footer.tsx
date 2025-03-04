@@ -1,3 +1,5 @@
+'use client'
+
 import Image from "next/image";
 import location_icon from "@/../public/icons/location.svg";
 import bg from "@/../public/images/footer/footer_bg_5.png";
@@ -8,14 +10,27 @@ import email_icon from "@/../public/icons/mail.svg";
 import whatsapp_icon from '@/../public/icons/whatsapp.svg';
 import telegram_icon from "@/../public/icons/telegram.svg";
 import instagram_icon from "@/../public/icons/instagram.svg";
+import { Canvas } from "@react-three/fiber";
+import { Center, OrbitControls } from '@react-three/drei';
+import EarthNight from "@/components/3d/NightEarth";
+import EarthNight2 from "@/components/3d/NightEarth2";
 
 const Footer = () => {
   return (
-    <div className="flex flex-col justify-center items-center w-full h-[100vh]">
-        <div className="grid justify-center content-center w-full bg-[#FFDB87]">
+    <div className="flex flex-col justify-center items-center w-full h-[100vh] bg-[#171717] border-none">
+        <div className="grid justify-center content-center relative w-full bg-[#FFDB87] border-none">
             <Image src={bg} alt="footer background image" className="w-full" />
+            <div className="w-full h-[100vh] flex justify-center items-center absolute z-10 -top-[150px] bg-transparent border-none">
+                <Canvas>
+                    <Center>
+                        <EarthNight2 scale={0.025} />
+                        <spotLight intensity={1} position={[10,10,10]} />
+                    </Center>
+                <OrbitControls minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} enableZoom={false}  />
+                </Canvas>
+            </div>
         </div>
-        <div className="w-full h-[80vh] px-[5rem] gap-[5rem] flex justify-center items-center text-white irsans footer">
+        <div className="w-full h-[100vh] px-[5rem] gap-[5rem] flex justify-center items-start z-20 text-white irsans footer border-none">
             <div className="flex flex-col gap-6 justify-start items-end">
                 <div className="flex flex-row gap-2">
                     <h5 className="irsans font-bold text-lg">
