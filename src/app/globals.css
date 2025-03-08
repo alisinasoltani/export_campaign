@@ -165,6 +165,15 @@
   border-radius: 0.6rem;
 }
 
+.overflow-or::before, .overflow-or::after {
+  content: '';
+  width: 2rem;
+  margin-inline: 5px;
+  color: white;
+  background-color: white;
+  height: 2px;
+}
+
 @layer base {}
 
 
