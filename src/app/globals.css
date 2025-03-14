@@ -174,15 +174,15 @@
   height: 2px;
 }
 
-@layer base {}
-
-
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+.grad {
+  background: 
+    linear-gradient(#ffffff 0 0) padding-box, /*this is your grey background*/
+    /* linear-gradient(to top left, #444444, #868686) border-box; */
+    linear-gradient(to top left, #EFEFEF, #D5D5D5) border-box;
+  color: #313149;
+  /* padding: 10px; */
+  border: 1px solid transparent;
+  display: inline-block;
 }
+
+@layer base {}
