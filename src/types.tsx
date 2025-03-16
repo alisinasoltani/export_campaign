@@ -35,4 +35,15 @@ interface ServiceProps {
     btnTitle: string;
 }
 
-export type { color, fontfamily, TabPanelProps, selectedStyle, ServiceProps };
+interface Question {
+    title: string;
+    content: string;
+    author_id: number;
+    created_at: string;
+    tags: string[];
+    stars: number;
+    views: number;
+    comments: string[];
+}
+
+export type { color, fontfamily, TabPanelProps, selectedStyle, ServiceProps, Question };

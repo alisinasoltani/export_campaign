@@ -176,13 +176,11 @@
 
 .grad {
   background: 
-    linear-gradient(#ffffff 0 0) padding-box, /*this is your grey background*/
-    /* linear-gradient(to top left, #444444, #868686) border-box; */
-    linear-gradient(to top left, #EFEFEF, #D5D5D5) border-box;
+    linear-gradient(to bottom right, #ffffff, #fafafa) padding-box,
+    linear-gradient(to top left, #F0F0F0, #D5D5D5) border-box;
   color: #313149;
   /* padding: 10px; */
   border: 1px solid transparent;
-  display: inline-block;
+  display: inline-flex;
 }
-
 @layer base {}

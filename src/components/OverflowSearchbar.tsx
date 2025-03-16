@@ -1,19 +1,30 @@
+'use client'
+
 import { useForm, SubmitHandler } from "react-hook-form";
 import Image from "next/image";
 import searchIcon from "@/../public/icons/search.svg";
+import { useInView } from "framer-motion";
+import { useEffect } from "react";
+import type { RefObject } from "react";
 
 type Input = {
   query: string
 }
 
-const OverflowSearchbar = () => {
+const OverflowSearchbar = ({ containerRef }: { containerRef: RefObject<HTMLDivElement | null> }) => {
     const {register, handleSubmit, watch, formState: { errors }} = useForm<Input>();
-
+    const isInView = useInView(containerRef, {
+        margin: "0px 0px 0px 0px",
+        once: false
+    });
+    useEffect(() => {
+        console.log("Element is in view: ", isInView)
+    }, [isInView])
     const onSubmit: SubmitHandler<Input> = (data) => console.log(data)
 
-    console.log(watch("query"))
+    // console.log(watch("query"))
     return (
-        <div className="w-full flex justify-center items-center bg-white stickyNavbar py-3 shadow-sm">
+        <div className={`w-full flex justify-center items-center bg-white py-3 shadow-sm ${isInView ? 'fixed top-0 left-0' : ''} z-20`}>
             <form onSubmit={handleSubmit(onSubmit)} className="flex justify-between items-center">
                 <div className="flex flex-col justify-center items-center">
                     <input {...register("query", { required: true })} 
