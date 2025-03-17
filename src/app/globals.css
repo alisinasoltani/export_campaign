@@ -2,20 +2,187 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@media only screen and (width >= 40rem) {
+  .service-title::before, .service-title::after {
+    content: '';
+    width: 8rem;
+    height: 0.2rem;
+    background-color: #CF3828;
+    position: relative;
+    top: 20px;
+  }
+} 
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media only screen and (width >= 48rem) {
+  .service-title::before, .service-title::after {
+    content: '';
+    width: 16rem;
+    height: 0.2rem;
+    background-color: #CF3828;
+    position: relative;
+    top: 20px;
+  }
+  .service-title h2 {
+    @apply text-3xl !important;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@media only screen and (width >= 64rem) {
+  .service-title::before, .service-title::after {
+    content: '';
+    width: 16rem;
+    height: 0.2rem;
+    background-color: #CF3828;
+    position: relative;
+    top: 20px;
+  }
+  .service-title h2 {
+    @apply text-3xl !important;
+  }
 }
+
+@font-face {
+  font-family: "irsans";
+  src: url("../../public/fonts/irsans.ttf");
+}
+@font-face {
+  font-family: "yekan_plus";
+  src: url("../../public/fonts/BYekan+.ttf");
+}
+@font-face {
+  font-family: "yekan_plus_bold";
+  src: url("../../public/fonts/BYekan+Bold.ttf");
+}
+@font-face {
+  font-family: "yekan";
+  src: url("../../public/fonts/Yekan.ttf");
+}
+@font-face {
+  font-family: "iransans_2";
+  src: url("../../public/fonts/ir_sans.ttf");
+}
+@font-face {
+  font-family: "iransans_2_bold";
+  src: url("../../public/fonts/IRAN\ Sans\ Bold.ttf");
+}
+@font-face {
+  font-family: "teraffic";
+  src: url("../../public/fonts/0\ Traffic.TTF");
+}
+@font-face {
+  font-family: "yekan_2";
+  src: url("../../public/fonts/0\ Yekan.TTF");
+}
+@font-face {
+  font-family: "nazanin";
+  src: url("../../public/fonts/0Nazanin.TTF");
+}
+@font-face {
+  font-family: "nazanin_bold";
+  src: url("../../public/fonts/0NazaninBold.TTF");
+}
+
+.irsans {
+  /* font-family: "yekan" !important; */
+  /* font-family: "yekan_2" !important; */
+  /* font-family: "irsans_2" !important; */
+  font-family: "nazanin" !important;
+  /* font-family: "irsans_2_bold" !important; */
+  /* font-family: "teraffic" !important; */
+  /* font-family: "irsans" !important; */
+}
+
+.nazanin {
+  font-family: "nazanin" !important;
+}
+.nazanin-bold {
+  font-family: "nazanin_bold" !important;
+}
+
+.swiper-button-prev:after, .swiper-button-next:after {
+  font-size: 35px !important;
+  color: white !important;
+  font-weight: 600;
+}
+
+.all_faq_btn {
+  transition: all 500ms;
+  -webkit-transition: all 300ms;
+}
+.all_faq_btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+}
+
+.lucide-chevron-down {
+  /* padding-right: 4px; */
+  /* width: 4px; */
+  color: #CF3828;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  color: #CF3828 !important;
+}
+.swiper-button-next::after, .swiper-button-prev::after {
+  color: #CF3828 !important;
+}
+
+.login_background {
+  background-image: url('../../public/images/login/login_bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.css-cokf1l-MuiListItemIcon-root {
+  min-width: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+}
+
+.footer {
+  background: rgb(23,23,23);
+  background: linear-gradient(180deg, rgba(17,17,17,0) 0%, rgba(17,17,17,1) 25%) !important;
+}
+
+.service {
+  background: rgb(255,252,242);
+  background: linear-gradient(140deg, rgba(255,252,242,1) 0%, rgba(238,235,226,1) 40%);
+  box-shadow: rgba(0, 0, 0, 0.15) 2px -2px 3px 0px;
+}
+
+.service-btn::before {
+  content: '';
+  padding-block: 0.25rem;
+  background-color: #ffffff;
+  width: 7.2rem;
+  height: 3.8rem;
+  position: absolute;
+  left: -0.35rem;
+  top: -0.35rem;
+  border-radius: 0.6rem;
+}
+
+.overflow-or::before, .overflow-or::after {
+  content: '';
+  width: 2rem;
+  margin-inline: 5px;
+  color: white;
+  background-color: white;
+  height: 2px;
+}
+
+.grad {
+  background: 
+    linear-gradient(#ffffff 0 0) padding-box, /*this is your grey background*/
+    /* linear-gradient(to top left, #444444, #868686) border-box; */
+    linear-gradient(to top left, #EFEFEF, #D5D5D5) border-box;
+  color: #313149;
+  /* padding: 10px; */
+  border: 1px solid transparent;
+  display: inline-block;
+}
+
+@layer base {}
