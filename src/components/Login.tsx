@@ -1,3 +1,18 @@
+import { signIn } from "@/auth";
+ 
+export default function SignIn() {
+  return (
+    <form
+      action={async () => {
+        "use server"
+        await signIn("google")
+      }}
+    >
+      <button type="submit">Signin with Google</button>
+    </form>
+  )
+};
+=======
 import login_cover from "@/../public/images/login/login_cover.png";
 import google_icon from "@/../public/icons/google.svg";
 import logo from "@/../public/logo.png";
@@ -23,4 +38,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Login;
