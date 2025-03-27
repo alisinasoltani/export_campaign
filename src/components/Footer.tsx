@@ -34,7 +34,7 @@ const Footer = () => {
         <div className="w-full h-[100vh] px-[5rem] gap-[5rem] flex justify-center items-start z-20 text-white irsans footer border-none">
             <div className="flex flex-col gap-6 justify-start items-end">
                 <div className="flex flex-row gap-2">
-                    <h5 className="irsans font-bold text-lg">
+                    <h5 className="irsansx font-bold text-lg">
                     تهران، خ ولیعصر، روبروی مسجد بلال، خ شهید مٌهری (امانیه)، پلاک 20
                     </h5>
                     <Image src={location_icon} width={32} alt="location address" />
@@ -45,19 +45,19 @@ const Footer = () => {
                     </div> */}
                 </div>
                 <div className="flex flex-row gap-2">
-                    <h5 className="irsans font-bold text-lg">
+                    <h5 className="irsansx font-bold text-lg">
                     021-25942
                     </h5>
                     <Image src={phone_icon} width={32} alt="location address" />
                 </div>
                 <div className="flex flex-row gap-2">
-                    <h5 className="irsans font-bold text-lg">
+                    <h5 className="irsansx font-bold text-lg">
                     info@exportcampaign.com
                     </h5>
                     <Image src={email_icon} width={32} alt="location address" />
                 </div>
                 <button type="button" className="flex flex-row justify-center items-center gap-2 text-white px-4 py-3 rounded-xl" style={{ background: 'linear-gradient(270deg, rgba(7,94,84,1) 13%, rgba(18,140,126,1) 63%, rgba(37,211,102,1) 100%)' }}>
-                    <h5 className="irsans text-lg">
+                    <h5 className="irsansx text-lg">
                     (فقط پیام کتبی) 09101112867
                     </h5>
                     {/* <Image src={whatsapp_icon} width={30} alt="location address" /> */}
@@ -98,7 +98,7 @@ const Footer = () => {
                     </button>
                 </div>
             </div>
-            <h4 className="text-xl leading-8 max-w-[700px] text-right" style={{ direction: 'rtl' }}>
+            <h4 className="text-xl leading-8 max-w-[700px] text-right irsansx" style={{ direction: 'rtl' }}>
             <span className="text-[#25D366]">پويش ملي صادرات</span>، 
             جرياني است حياتي براي اقتصاد ايران كه با هدايت محمدامين حاج كاظميان به دور از رانت و تبعيض و بدون استفاده از هرگونه منابع مالي دولتي، 
             خالصانه و دغدغه مند در جهت: ١. ترغيب و ترويج فرهنگ صادرات در بين جامعه جوان و كارآفرين 

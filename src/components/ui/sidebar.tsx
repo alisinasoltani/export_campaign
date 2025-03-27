@@ -90,7 +90,7 @@ export function SessionNavBar() {
       onMouseEnter={() => setIsCollapsed(false)}
       onMouseLeave={() => setIsCollapsed(true)}>
       <motion.div
-        className={`relative z-40 flex text-muted-foreground h-full shrink-0 flex-col bg-white dark:bg-black transition-all`}
+        className={`relative z-40 flex text-muted-foreground h-full shrink-0 flex-col bg-white transition-all`}
         variants={contentVariants} style={{ direction: 'rtl' }}>
         <motion.ul variants={staggerVariants} className="flex h-full flex-col">
           <div className="flex grow flex-col items-center">

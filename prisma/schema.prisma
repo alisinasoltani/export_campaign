@@ -1,0 +1,149 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model account {
+  id                       String   @id
+  userId                   String   @unique(map: "Account_userId_key")
+  type                     String
+  provider                 String
+  providerAccountId        String
+  refresh_token            String?  @db.Text
+  access_token             String?  @db.Text
+  expires_at               Int?
+  token_type               String?
+  scope                    String?
+  id_token                 String?  @db.Text
+  session_state            String?
+  refresh_token_expires_in Int?
+  createdAt                DateTime @default(now())
+  updatedAt                DateTime
+  user                     user     @relation(fields: [userId], references: [id], map: "Account_userId_fkey")
+
+  @@unique([provider, providerAccountId], map: "Account_provider_providerAccountId_key")
+  @@index([userId], map: "Account_userId_idx")
+}
+
+model answer {
+  id         String   @id
+  body       String
+  createdAt  DateTime @default(now())
+  voteCount  Int      @default(0)
+  accepted   Boolean  @default(false)
+  authorId   String
+  questionId String
+  user       user     @relation(fields: [authorId], references: [id], map: "Answer_authorId_fkey")
+  question   question @relation(fields: [questionId], references: [id], map: "Answer_questionId_fkey")
+
+  @@index([authorId], map: "Answer_authorId_fkey")
+  @@index([questionId], map: "Answer_questionId_fkey")
+}
+
+model authenticator {
+  credentialID         String  @unique(map: "Authenticator_credentialID_key")
+  userId               String
+  providerAccountId    String
+  credentialPublicKey  String
+  counter              Int
+  credentialDeviceType String
+  credentialBackedUp   Boolean
+  transports           String?
+  user                 user    @relation(fields: [userId], references: [id], onDelete: Cascade, map: "Authenticator_userId_fkey")
+
+  @@id([userId, credentialID])
+}
+
+model chapter {
+  id      Int       @id @default(autoincrement())
+  title   String    @unique(map: "Chapter_title_key")
+  isVisible Boolean @default(true)
+  section section[]
+}
+
+model section {
+  id        Int     @id @default(autoincrement())
+  title     String
+  content   String  @db.Text
+  // tags      String  @db.LongText
+  isVisible Boolean @default(true)
+  chapterId Int
+  chapter   chapter @relation(fields: [chapterId], references: [id], map: "Section_chapterId_fkey")
+
+  @@index([chapterId], map: "Section_chapterId_fkey")
+}
+
+model question {
+  id        String   @id
+  title     String
+  body      String
+  createdAt DateTime @default(now())
+  viewCount Int      @default(0)
+  voteCount Int      @default(0)
+  closed    Boolean  @default(false)
+  authorId  String
+  answer    answer[]
+  user      user     @relation(fields: [authorId], references: [id], map: "Question_authorId_fkey")
+  tag       tag[]    @relation("questiontotag")
+
+  @@index([authorId], map: "Question_authorId_fkey")
+}
+
+model session {
+  id           String   @id
+  sessionToken String   @unique(map: "Session_sessionToken_key")
+  userId       String
+  expires      DateTime
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime
+  user         user     @relation(fields: [userId], references: [id], map: "Session_userId_fkey")
+
+  @@index([userId], map: "Session_userId_idx")
+}
+
+model tag {
+  id       String     @id
+  name     String     @unique(map: "Tag_name_key")
+  question question[] @relation("questiontotag")
+}
+
+model user {
+  id            String          @id
+  name          String?
+  username      String?         @unique(map: "User_username_key")
+  email         String?         @unique(map: "User_email_key")
+  emailVerified DateTime?
+  image         String?
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime
+  account       account?
+  answer        answer[]
+  authenticator authenticator[]
+  question      question[]
+  session       session[]
+  vote          vote[]
+}
+
+model verificationtoken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@unique([identifier, token], map: "VerificationToken_identifier_token_key")
+}
+
+model vote {
+  id         String   @id
+  type       String
+  userId     String
+  targetType String
+  targetId   String
+  createdAt  DateTime @default(now())
+  user       user     @relation(fields: [userId], references: [id], map: "Vote_userId_fkey")
+
+  @@unique([userId, targetType, targetId], map: "Vote_userId_targetType_targetId_key")
+}

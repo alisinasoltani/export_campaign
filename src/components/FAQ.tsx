@@ -43,7 +43,7 @@ const FAQ = () => {
         <div>
             <Image src={bg} alt="faq bg" draggable={false} />
         </div>
-        <div className="w-full flex flex-col justify-center items-center bg-[#FFDB87]">
+        <div className="w-full flex flex-col justify-center items-center bg-[#FFDB87] irsansx">
             <div className="flex lg:flex-row-reverse flex-col justify-center items-center w-full py-12 gap-8
             relative md:-top-[140px] -top-[50px]">
                 <div className="flex flex-col justify-center items-center gap-4">

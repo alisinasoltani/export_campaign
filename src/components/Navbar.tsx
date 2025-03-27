@@ -28,7 +28,7 @@ const Navbar = () => {
         setOpen(newOpen);
     };
     return (
-    <div className="w-full flex flex-row-reverse justify-between items-center md:w-full px-8 py-2 irsans font-bold shadow-lg fixed top-0 z-[1000] bg-white">
+    <div className="w-full flex flex-row-reverse justify-between items-center md:w-full px-8 py-2 irsansx-md shadow-lg fixed top-0 z-[1000] bg-white">
         <div className="md:max-w-fit w-full flex flex-row-reverse justify-between gap-8">
             <Image src={logo} width={100} alt="export campaign logo" />
             <Button className="md:hidden flex" onClick={toggleDrawer(true)} disableRipple={true}>

@@ -20,7 +20,7 @@ const ServicesInfo: ServiceProps[] = [
     {
         title: "صفر تا صد صادرات در 10 گام",
         subtitle: "Export Training",
-        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها",
         isNew: false,
         btnTitle: "شروع مطالعه",
         img: "/images/services/10-Steps.png",
@@ -29,7 +29,7 @@ const ServicesInfo: ServiceProps[] = [
     {
         title: "Export Knowledge Assessment",
         subtitle: "ارزیابی دانش صادراتی",
-        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها",
         isNew: false,
         btnTitle: "شروع آزمون",
         img: "/images/services/assessments.png",
@@ -38,7 +38,7 @@ const ServicesInfo: ServiceProps[] = [
     {
         title: "Export Plus Service Center",
         subtitle: "مرکز خدمات +Export",
-        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها",
         isNew: false,
         btnTitle: "اطلاعات بیشتر",
         img: "/images/services/export_service_center.png",
@@ -47,7 +47,7 @@ const ServicesInfo: ServiceProps[] = [
     {
         title: "FAQ",
         subtitle: "سوالات متداول",
-        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها",
         isNew: false,
         btnTitle: "مطالعات بیشتر",
         img: "/images/services/FAQ-1.png",
@@ -56,7 +56,7 @@ const ServicesInfo: ServiceProps[] = [
     {
         title: "IDEA Accelerator",
         subtitle: "مرکز رشد ایده ها",
-        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها",
         isNew: false,
         btnTitle: "اطلاعات بیشتر",
         img: "/images/services/Idea.png",
@@ -65,7 +65,7 @@ const ServicesInfo: ServiceProps[] = [
     {
         title: "The Peaceful World",
         subtitle: "مشارکت در برند ملی",
-        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز",
+        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها",
         isNew: false,
         btnTitle: "اطلاعات بیشتر",
         img: "/images/services/TPW.png",
@@ -76,7 +76,7 @@ const ServicesInfo: ServiceProps[] = [
 const Services = () => {
   return (
     <div className="flex flex-col justify-center items-center">
-        <div className="flex flex-row gap-4 pt-12 text-3xl font-bold service-title">
+        <div className="flex flex-row gap-4 pt-12 text-3xl irsansx-mid service-title">
             <Image src={idea_icon} width={42} alt="idea icon" />
             <h2>خدمات ما</h2>
             <Image src={checklist_icon} width={42} alt="idea icon" />

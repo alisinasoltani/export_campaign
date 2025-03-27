@@ -81,15 +81,34 @@
   font-family: "nazanin_bold";
   src: url("../../public/fonts/0NazaninBold.TTF");
 }
+@font-face {
+  font-family: "iraniansans";
+  src: url("../../public/fonts/IranianSans.ttf");
+}
+@font-face {
+  font-family: "iraniansansx";
+  src: url("../../public/fonts/IRANSansX-Regular.ttf");
+}
+@font-face {
+  font-family: "iraniansansx_bold";
+  src: url("../../public/fonts/IRANSansX-Bold.ttf");
+}
+@font-face {
+  font-family: "iraniansansx_mid";
+  src: url("../../public/fonts/IRANSansX-DemiBold.woff");
+}
 
 .irsans {
-  /* font-family: "yekan" !important; */
-  /* font-family: "yekan_2" !important; */
-  /* font-family: "irsans_2" !important; */
-  font-family: "nazanin" !important;
-  /* font-family: "irsans_2_bold" !important; */
-  /* font-family: "teraffic" !important; */
-  /* font-family: "irsans" !important; */
+  font-family: "iraniansans" !important;
+}
+.irsansx {
+  font-family: "iraniansansx" !important;
+}
+.irsansx-bold {
+  font-family: "iraniansansx_bold" !important;
+}
+.irsansx-mid {
+  font-family: "iraniansansx_mid" !important;
 }
 
 .nazanin {
@@ -183,4 +202,6 @@
   border: 1px solid transparent;
   display: inline-flex;
 }
-@layer base {}
+@layer theme {
+  
+}

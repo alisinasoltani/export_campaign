@@ -12,7 +12,6 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { RefObject } from "react";
-import type { JSX } from "react";
 // import * as moment from 'jalali-moment';
 
 const OverflowQuestionList = ({question, ref}: {question: Question,  ref?: RefObject<HTMLDivElement | null>}) => {
