@@ -9,6 +9,15 @@ import bg from "@/../public/images/faq/faq_bg.png";
 import question_icon from "@/../public/icons/big_question_mark.svg";
 import link from "@/../public/icons/link.svg";
 import { styled } from '@mui/material/styles';
+import { Canvas } from "@react-three/fiber";
+import { Center, OrbitControls } from '@react-three/drei';
+import AccordionLogo from "@/components/3d/AccordionLogo";
+import LinkLogo from "@/components/3d/LinkLogo";
+import QuestionLogo from "@/components/3d/QuestionLogo";
+import { Preload } from "@react-three/drei";
+import { useEffect, useRef, useState } from "react";
+import MouseRotator from "@/components/3d/MouseRotator";
+import AccordionLogoScene from "@/components/3d/AccordionlogoScene";
 
 // MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1umw9bq-MuiSvgIcon-root
 const FaqAccordion = styled(Accordion)<AccordionProps>(({ theme }) => ({
@@ -37,9 +46,16 @@ const FaqAccordion = styled(Accordion)<AccordionProps>(({ theme }) => ({
     },
 }));
 
+
+
 const FAQ = () => {
+    const containerRef = useRef(null);
+    let window_d: any;
+    useEffect(() => {
+        window_d = window.devicePixelRatio;
+    }, []);
   return (
-    <div className="flex flex-col justify-center items-center w-full">
+    <div className="flex flex-col justify-center items-center w-full nazanin-bold" ref={containerRef}>
         <div>
             <Image src={bg} alt="faq bg" draggable={false} />
         </div>
@@ -48,18 +64,54 @@ const FAQ = () => {
             relative md:-top-[140px] -top-[50px]">
                 <div className="flex flex-col justify-center items-center gap-4">
                     <Image src={question_icon} height={200} alt="faq icon" />
+                    {/* <div className="w-full h-full"> */}
+                        {/* <Canvas> */}
+                            {/* <Center scale={12}> */}
+                                {/* <QuestionLogo scale={1} /> */}
+                                {/* <directionalLight intensity={7} position={[1,1,1]} /> */}
+                                {/* <directionalLight intensity={7} position={[-1,-1,-1]} /> */}
+                                {/* <directionalLight intensity={7} position={[-12,-12,-3]} /> */}
+                                {/* <ambientLight intensity={6.5} position={[-1,0,-1]} /> */}
+                            {/* </Center> */}
+                            {/* <OrbitControls maxPolarAngle={Math.PI/2} minPolarAngle={Math.PI/2} enableZoom={false} /> */}
+                        {/* </Canvas> */}
+                    {/* </div> */}
                     <h2 className="font-bold text-2xl">سوالات متداول</h2>
-                    <button type="button" className="flex flex-row gap-2 bg-[#CF3828] px-4 py-2 rounded-2xl all_faq_btn
+                    <button type="button" className="flex flex-row justify-center items-center gap-2 bg-[#CF3828] px-4 py-2 rounded-2xl all_faq_btn
                     text-sm font-bold text-white">
-                        <Image src={link} width={25} alt="link to all FAQs" />
-                        مشاهده همه سوالات
+                        <div className="flex justify-center items-center w-[25px] h-[25px]">
+                            <Canvas 
+                                shadows
+                                gl={{ antialias: true, alpha: true }}
+                                dpr={window_d}
+                                camera={{ position: [0, 0, 3], fov: 50 }}>
+                                <ambientLight intensity={5} />
+                                <MouseRotator containerRef={containerRef}>
+                                    <Center>
+                                    <LinkLogo scale={0.25} />
+                                    </Center>
+                                </MouseRotator>
+                                <OrbitControls 
+                                maxPolarAngle={Math.PI/2}
+                                minPolarAngle={Math.PI/2}
+                                enableZoom={false}
+                                target={[0, 0, 0]}
+                                // autoRotate // Optional: adds subtle rotation
+                                // autoRotateSpeed={2}
+                                />
+                                <Preload all />
+                            </Canvas>
+                        </div>
+                        <h5 className="w-full h-full flex justify-center items-center">
+                            مشاهده همه سوالات
+                        </h5>
                     </button>
                 </div>
                 <div className="flex flex-col justify-center items-center gap-4">
                     <FaqAccordion>
                         <AccordionSummary
                         sx={{ borderRadius: '1rem' }}
-                        expandIcon={<ArrowDownwardIcon sx={{ color: '#CF3828' }} />}
+                        expandIcon={<AccordionLogoScene />}
                         aria-controls="panel1-content"
                         id="panel1-header">
                         آیا راهکاری وجود دارد تا قبل از ارسال کالا به خریدار خارجی، بتوان وجه آن را دریافت نمود؟
