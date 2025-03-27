@@ -1,5 +1,6 @@
 import Login from "@/components/Login";
 import Navbar from "@/components/Navbar";
+// import { signIn } from "@/auth";
 
 const page = () => {
   return (

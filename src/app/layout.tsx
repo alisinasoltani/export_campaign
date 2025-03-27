@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { SessionProvider } from 'next-auth/react';
+import { auth } from '@/auth';
+
 
 export const metadata: Metadata = {
   title: "پویش ملی صادرات",
@@ -7,16 +10,19 @@ export const metadata: Metadata = {
   authors: [{name: "Alisina Soltani", url: "https://github.com/alisinasoltani"}, {name: "Marry Fatahi"}]
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
   return (
-    <html lang="fa">
-      <body>
-        {children}
-      </body>
-    </html>
+    <SessionProvider session={session}>
+      <html lang="fa">
+        <body>
+          {children}
+        </body>
+      </html>
+    </SessionProvider>
   );
 }

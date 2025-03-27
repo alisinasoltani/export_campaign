@@ -81,15 +81,41 @@
   font-family: "nazanin_bold";
   src: url("../../public/fonts/0NazaninBold.TTF");
 }
+@font-face {
+  font-family: "iraniansans";
+  src: url("../../public/fonts/IranianSans.ttf");
+}
+@font-face {
+  font-family: "iraniansansx";
+  src: url("../../public/fonts/IRANSansX-Regular.ttf");
+}
+@font-face {
+  font-family: "iraniansansx_bold";
+  src: url("../../public/fonts/IRANSansX-Bold.ttf");
+}
+@font-face {
+  font-family: "iraniansansx_mid";
+  src: url("../../public/fonts/IRANSansX-DemiBold.woff");
+}
 
 .irsans {
-  /* font-family: "yekan" !important; */
-  /* font-family: "yekan_2" !important; */
-  /* font-family: "irsans_2" !important; */
+  font-family: "iraniansans" !important;
+}
+.irsansx {
+  font-family: "iraniansansx" !important;
+}
+.irsansx-bold {
+  font-family: "iraniansansx_bold" !important;
+}
+.irsansx-mid {
+  font-family: "iraniansansx_mid" !important;
+}
+
+.nazanin {
   font-family: "nazanin" !important;
-  /* font-family: "irsans_2_bold" !important; */
-  /* font-family: "teraffic" !important; */
-  /* font-family: "irsans" !important; */
+}
+.nazanin-bold {
+  font-family: "nazanin_bold" !important;
 }
 
 .swiper-button-prev:after, .swiper-button-next:after {
@@ -135,15 +161,47 @@
   align-items: center;
 }
 
-@layer base {}
+.footer {
+  background: rgb(23,23,23);
+  background: linear-gradient(180deg, rgba(17,17,17,0) 0%, rgba(17,17,17,1) 25%) !important;
+}
 
+.service {
+  background: rgb(255,252,242);
+  background: linear-gradient(140deg, rgba(255,252,242,1) 0%, rgba(238,235,226,1) 40%);
+  box-shadow: rgba(0, 0, 0, 0.15) 2px -2px 3px 0px;
+}
 
+.service-btn::before {
+  content: '';
+  padding-block: 0.25rem;
+  background-color: #ffffff;
+  width: 7.2rem;
+  height: 3.8rem;
+  position: absolute;
+  left: -0.35rem;
+  top: -0.35rem;
+  border-radius: 0.6rem;
+}
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+.overflow-or::before, .overflow-or::after {
+  content: '';
+  width: 2rem;
+  margin-inline: 5px;
+  color: white;
+  background-color: white;
+  height: 2px;
+}
+
+.grad {
+  background: 
+    linear-gradient(to bottom right, #ffffff, #fafafa) padding-box,
+    linear-gradient(to top left, #F0F0F0, #D5D5D5) border-box;
+  color: #313149;
+  /* padding: 10px; */
+  border: 1px solid transparent;
+  display: inline-flex;
+}
+@layer theme {
+  
 }
