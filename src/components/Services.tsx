@@ -75,7 +75,7 @@ const ServicesInfo: ServiceProps[] = [
 
 const Services = () => {
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center" id="services">
         <div className="flex flex-row gap-4 pt-12 text-3xl irsansx-mid service-title">
             <Image src={idea_icon} width={42} alt="idea icon" />
             <h2>خدمات ما</h2>
