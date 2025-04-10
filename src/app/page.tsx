@@ -1,6 +1,6 @@
 'use client'
 
-import FAQ from "@/components/FAQ";
+import FAQ from "@/components/FAQ2";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Services from "@/components/Services";

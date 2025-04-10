@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/3d/NightEarth2.jsx", "src/app/api/upload/route.ts", "src/components/MarkdownEditor.tsx", "src/components/3d/Earth_Low.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/3d/NightEarth2.jsx", "src/app/api/upload/route.ts", "src/components/MarkdownEditor.tsx", "src/components/3d/Earth_Low.jsx", "src/components/Services.tsx"],
   "exclude": ["node_modules"]
 }

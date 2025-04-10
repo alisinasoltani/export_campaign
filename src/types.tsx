@@ -117,4 +117,18 @@ interface SectionData {
 
 }
 
-export type { color, fontfamily, TabPanelProps, selectedStyle, ServiceProps, Question, User, Answer, Tag, Vote, ChapterData, SectionData };
+interface FrequentQuestions {
+    id: number;
+    title: string;
+    body: string;
+    createdAt: string;
+    viewCount: number;
+    closed: boolean;
+    answers: string[];
+    author: string;
+    authorId: number;
+    tags: string[];
+}
+
+export type { color, fontfamily, TabPanelProps, selectedStyle, ServiceProps, 
+Question, User, Answer, Tag, Vote, ChapterData, SectionData, FrequentQuestions };

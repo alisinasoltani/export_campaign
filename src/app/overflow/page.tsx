@@ -74,6 +74,7 @@ const page = () => {
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         });
     };
+    const queryHandler = (searchTerm: string) => {}
     return (
         <div>
             <AuroraBackground>
@@ -116,7 +117,7 @@ const page = () => {
                 <ArrowsDownLogo />
             </div>
             <div className="w-full bg-[#fdfdfd]">
-                <OverflowSearchbar containerRef={searchBarRef} />
+                <OverflowSearchbar containerRef={searchBarRef} queryHandler={queryHandler} />
                 <div className="flex flex-col justify-center items-center gap-8 py-12" ref={searchBarRef}>
                     {
                         questions.map((question, index) => {

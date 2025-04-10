@@ -15,7 +15,7 @@ import { RefObject } from "react";
 // import * as moment from 'jalali-moment';
 
 const OverflowQuestionList = ({question, ref}: {question: Question,  ref?: RefObject<HTMLDivElement | null>}) => {
-  const date = new Date(parseInt(question.created_at));
+  const date = new Date(parseInt(question.createdAt.toString()));
   // const todayJalali = moment(created_at, 'YYYY/MM/DD').locale('fa').format('YYYY/MM/DD');
   return (
     <div className="w-full flex justify-center items-center" ref={ref}>
@@ -25,7 +25,7 @@ const OverflowQuestionList = ({question, ref}: {question: Question,  ref?: RefOb
             <Tooltip>
               <TooltipTrigger asChild>
                 <div className="flex justify-between items-center gap-1 cursor-help">
-                  <h3 className="nazanin-bold text-lg text-right">{ question.stars }</h3>
+                  <h3 className="nazanin-bold text-lg text-right">{ question.votes.length }</h3>
                   <Image src={starIcon} width={24} alt="how many stars community gave this question." />
                 </div>
               </TooltipTrigger>
@@ -51,7 +51,7 @@ const OverflowQuestionList = ({question, ref}: {question: Question,  ref?: RefOb
             <Tooltip>
               <TooltipTrigger asChild>
                 <div className="flex justify-between items-center gap-1 cursor-help">
-                  <h3 className="nazanin-bold text-lg text-right">{ question.views }</h3>
+                  <h3 className="nazanin-bold text-lg text-right">{ question.viewCount }</h3>
                   <Image src={viewIcon} width={24} alt="how many views has this quation got." />
                 </div>
               </TooltipTrigger>
@@ -66,7 +66,7 @@ const OverflowQuestionList = ({question, ref}: {question: Question,  ref?: RefOb
             <h2>{ question.title }</h2>
           </div>
           <div className="text-right nazanin text-base truncate max-w-[30vw] h-[4rem]" style={{ direction: 'rtl' }}>
-            <span>{ question.content }</span>
+            <span>{ question.body }</span>
           </div>
           <div className="w-full flex justify-end items-center gap-12">
             <div className="flex justify-between items-center gap-2 text-base">
@@ -78,7 +78,7 @@ const OverflowQuestionList = ({question, ref}: {question: Question,  ref?: RefOb
               </div>
               <div className="flex justify-between items-center gap-2">
                 <div className="text-right nazanin">
-                  <h5>{ question.author_id.toString() }</h5>
+                  <h5>{ question.authorId.toString() }</h5>
                 </div>
                 <div className="w-6 h-6 rounded-full bg-[#E6E6E6]"></div>
               </div>
@@ -86,7 +86,7 @@ const OverflowQuestionList = ({question, ref}: {question: Question,  ref?: RefOb
             <div className="flex justify-between items-center gap-2">
               {
                 question.tags.map((tag, index) => (
-                  <OverflowTag key={index} tag={tag} />
+                  <OverflowTag key={index} tag={tag.name} />
                 ))
               }
             </div>
