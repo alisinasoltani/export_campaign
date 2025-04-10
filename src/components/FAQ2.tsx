@@ -137,7 +137,7 @@ const FAQ = () => {
                         spaceBetween: 30
                     }
                 }}
-                autoplay={{delay: 500}}
+                autoplay={{delay: 5000}}
                 loop={true}
                 pagination={{
                 clickable: true,
@@ -177,8 +177,8 @@ const FAQ = () => {
                                             {question.author}
                                         </h5>
                                     </div>
-                                    <div className="w-full h-full flex flex-col justify-end items-end self-end gap-2">
-                                        <div className="h-full max-w-fit flex self-start items-end justify-start gap-4">
+                                    <div className="w-full h-full flex flex-col justify-end items-end self-end gap-4">
+                                        <div className="h-full max-w-fit flex self-end items-end justify-start gap-4">
                                             <div className="flex justify-between items-center gap-1">
                                                 <button type="button" className="irsansx-mid bg-blue-400 px-3 py-2 rounded-xl text-sm text-right">{ question.answers.length } :دیدگاه ها</button>
                                             </div>
