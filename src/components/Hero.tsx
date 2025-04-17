@@ -8,7 +8,7 @@ import { Squares } from "@/components/ui/squares-background";
 const Hero = () => {
 
     return (
-        <div className="w-full h-[100vh] flex justify-center items-center bg-white">
+        <div className="w-[100vw] h-[100vh] flex justify-center items-center bg-white overflow-y-hidden">
             <Squares
             className="bg-white"
             direction="diagonal"

@@ -5,7 +5,6 @@ const {
 
 export default {
     // darkMode: ["class"],
-    // darkMode: ["class"],
     content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -53,7 +52,12 @@ export default {
     				'3': 'hsl(var(--chart-3))',
     				'4': 'hsl(var(--chart-4))',
     				'5': 'hsl(var(--chart-5))'
-    			}
+    			},
+				"color-1": "#000000",
+				"color-2": "#000000",
+				"color-3": "#000000",
+				"color-4": "#000000",
+				"color-5": "#000000",
     		},
     		borderRadius: {
     			lg: 'var(--radius)',
@@ -73,13 +77,18 @@ export default {
     			third: 'moveInCircle 40s linear infinite',
     			fourth: 'moveHorizontal 40s ease infinite',
     			fifth: 'moveInCircle 20s ease infinite',
-				grid: "grid 15s linear infinite",
+    			grid: 'grid 15s linear infinite',
+				rainbow: "rainbow var(--speed, 2s) infinite linear",
     		},
     		keyframes: {
-				grid: {
-					"0%": { transform: "translateY(-50%)" },
-					"100%": { transform: "translateY(0)" },
-				},
+    			grid: {
+    				'0%': {
+    					transform: 'translateY(-50%)'
+    				},
+    				'100%': {
+    					transform: 'translateY(0)'
+    				}
+    			},
     			'accordion-down': {
     				from: {
     					height: '0'
@@ -175,11 +184,15 @@ export default {
     				'100%': {
     					transform: 'translateY(-50%)'
     				}
-    			}
+    			},
+				rainbow: {
+					"0%": { "background-position": "0%" },
+					"100%": { "background-position": "200%" },
+				},
     		},
     		backgroundImage: {
     			'grid-pattern': '',
-    			'grid-pattern-light': '',
+    			'grid-pattern-light': ''
     		}
     	}
     },

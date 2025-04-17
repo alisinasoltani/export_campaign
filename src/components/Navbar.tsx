@@ -27,7 +27,7 @@ const Navbar = () => {
         setOpen(newOpen);
     };
     return (
-    <div className="w-full flex flex-row-reverse justify-center items-center md:w-full px-8 py-2 irsansx-md fixed top-0 z-[100] bg-none" id="navbar">
+    <div className="w-full flex flex-row-reverse justify-center items-center md:w-full px-8 py-1 irsansx-md fixed top-0 z-[100] bg-none irsansx" id="navbar">
         <div className="w-full flex flex-row-reverse justify-center items-center gap-8">
             {/* <Image src={logo} width={100} alt="export campaign logo" /> */}
             <div className="min-w-fit flex justify-end items-center">
@@ -122,16 +122,16 @@ const Navbar = () => {
             </div>
         </div>
         <div className="md:flex hidden flex-row gap-4 justify-start items-center">
-            <button type="button" className="min-w-fit bg-[#E6A817] hover:shadow-lg transition-all duration-500 px-2 py-2 rounded-xl flex flex-row items-center justify-center gap-4">
-                <Image src={road} width={28} alt="road button" />
+            <button type="button" className="h-full min-w-fit bg-[#E6A817] hover:shadow-lg transition-all duration-500 px-2 py-1.5 rounded-xl flex flex-row items-center justify-center gap-4">
+                <Image src={road} width={26} alt="road button" />
                 شروع مسیر
             </button>
             <button type="button" className="min-w-fit bg-[#f5f5f5] hover:shadow-lg transition-all duration-500 p-2 rounded-full flex flex-row items-center justify-center">
-                <Image src={search} width={28} alt="search button" />
+                <Image src={search} width={26} alt="search button" />
             </button>
         </div>
     </div>
-    )
+    );
 }
 
 export default Navbar;

@@ -108,14 +108,18 @@ gsap.registerPlugin([ScrollTrigger]);
 const FAQ = () => {
     const swiperRef = useRef<any>(null);
     useGSAP(() => {
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
         gsap.fromTo('.faq', {
             autoAlpha: 0,
             y: -20
         }, {
             scrollTrigger: {
-                start: 'center center',
+                start: `${(windowWidth*4.8)} center`,
                 end: 'center center',
-                toggleActions: 'play none none none'
+                toggleActions: 'play none none none',
+                // horizontal: true,
+                // markers: true
             },
             y: 0,
             autoAlpha: 1,
@@ -123,7 +127,7 @@ const FAQ = () => {
         });
     }, {scope: swiperRef})
     return (
-        <div className='flex flex-col py-[4rem]'>
+        <div className='flex flex-col py-[4rem] w-[100vw] h-[100vh] overflow-y-hidden' ref={swiperRef}>
             <div className='w-full flex justify-center items-center text-3xl irsansx font-bold text-center'><h2>سوالات متداول</h2></div>
             <div className='w-full min-h-[100vh] pt-[2rem] pb-[6rem] px-[5rem] flex'>
                 <Swiper
@@ -143,8 +147,7 @@ const FAQ = () => {
                 clickable: true,
                 }}
                 modules={[Navigation]}
-                className="FAQ"
-                ref={swiperRef}>
+                className="FAQ">
                     {
                         Questions.map((question, index) => (
                             <SwiperSlide className='overflow-visible bg-[rgba(255,255,255, 0.1)] w-full h-full rounded-3xl px-8 py-8 flex flex-col border-2 backdrop-blur-xl border-black faq' key={index}>
