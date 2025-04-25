@@ -6,9 +6,7 @@ export default function Ai(props) {
     const aiRef = useRef();
     const { nodes, materials } = useGLTF('/models/ai2.glb');
     useFrame(({ clock }) => {
-        aiRef.current.rotation.x += clock.elapsedTime / 4200;
-        // aiRef.current.rotation.x += clock.elapsedTime / 1200;
-        // aiRef.current.rotation.y += clock.elapsedTime / 1200;
+        aiRef.current.rotation.x += 0.003;
     })
     return (
         <group {...props} dispose={null} ref={aiRef}>
