@@ -7,9 +7,11 @@ import Services from '@/components/Services';
 import Lenis from 'lenis';
 import Hero from '@/components/Hero';
 import { useEffect, useRef } from 'react';
+import Crates from "@/components/Crates";
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import Loading from "@/components/Loading";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -111,11 +113,13 @@ export default function Home() {
       <main className="w-full overflow-hidden">
         <Navbar />
         <div
-          className="w-[700vw] h-[100vh] flex flex-row overflow-hidden"
+          className="w-[800vw] h-[100vh] flex flex-row overflow-hidden"
           ref={scrollContainerRef}
         >
           <Hero />
+          {/* <Loading /> */}
           <Services />
+          <Crates />
           <FAQ />
           <Footer />
         </div>

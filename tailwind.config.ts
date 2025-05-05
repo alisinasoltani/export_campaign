@@ -79,8 +79,13 @@ export default {
     			fifth: 'moveInCircle 20s ease infinite',
     			grid: 'grid 15s linear infinite',
 				rainbow: "rainbow var(--speed, 2s) infinite linear",
+				blink: 'blink 3s infinite',
     		},
     		keyframes: {
+				blink: {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0' },
+				},
     			grid: {
     				'0%': {
     					transform: 'translateY(-50%)'

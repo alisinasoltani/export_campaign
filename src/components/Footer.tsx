@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import location_icon from "@/../public/icons/location.svg";
-import bg from "@/../public/images/footer/footer_bg_5.png";
+// import bg from "@/../public/images/footer/footer_bg_5.png";
 import phone_icon from "@/../public/icons/phone.svg";
 import email_icon from "@/../public/icons/mail.svg";
 import whatsapp_icon from '@/../public/icons/whatsapp.svg';
@@ -10,11 +10,11 @@ import telegram_icon from "@/../public/icons/telegram.svg";
 import instagram_icon from "@/../public/icons/instagram.svg";
 import { Canvas } from "@react-three/fiber";
 import { Center, OrbitControls } from '@react-three/drei';
-import EarthNight from "@/components/3d/NightEarth";
+// import EarthNight from "@/components/3d/NightEarth";
 import EarthNight2 from "@/components/3d/NightEarth2";
-import WhatsappLogo from "@/components/3d/WhatsappLogo";
-import TelegramLogo from "@/components/3d/TelegramLogo";
-import InstagramLogo from "@/components/3d/InstagramLogo";
+// import WhatsappLogo from "@/components/3d/WhatsappLogo";
+// import TelegramLogo from "@/components/3d/TelegramLogo";
+// import InstagramLogo from "@/components/3d/InstagramLogo";
 import Link from "next/link";
 
 const Footer = () => {

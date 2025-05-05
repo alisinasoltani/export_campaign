@@ -7,79 +7,86 @@ import { ServiceProps } from "@/types";
 import { useRef } from "react";
 import gsap from "gsap";
 import { degToRad } from 'three/src/math/MathUtils.js'
-import road from "@/../public/icons/road.svg";
+// import road from "@/../public/icons/road.svg";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { Canvas } from "@react-three/fiber";
-import Service1 from "@/components/3d/Service1";
+// import Service1 from "@/components/3d/Service1";
+import ChatBubble from "@/components/3d/ChatBubble";
+import Service1 from "@/components/3d/Service1_2";
 import Service3 from "@/components/3d/Service3";
-import Chat from "@/components/3d/Chat";
+// import Chat from "@/components/3d/Chat";
 import { Center, OrbitControls } from "@react-three/drei";
-import Ai from "@/components/3d/Ai";
+// import Ai from "@/components/3d/Ai";
+// import AiSimple from "@/components/3d/AiSimple";
 import { useGSAP } from "@gsap/react";
 import { RainbowButton } from "./ui/rainbow-button";
 import Link from "next/link";
+import AiHolo from "@/components/3d/AiHolo";
+import { CircularProgress } from "@mui/material";
+import { useProgress } from "@react-three/drei";
 
-const ServicesInfo: ServiceProps[] = [
-    {
-        title: "صفر تا صد صادرات در 10 گام",
-        subtitle: "Export Training",
-        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها",
-        isNew: false,
-        btnTitle: "شروع مطالعه",
-        img: "/images/services/10-Steps.png",
-        href: "/services/export_training",
-    },
-    {
-        title: "Export Knowledge Assessment",
-        subtitle: "ارزیابی دانش صادراتی",
-        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها",
-        isNew: false,
-        btnTitle: "شروع آزمون",
-        img: "/images/services/assessments.png",
-        href: "/services/export_knowledge_assessment"
-    },
-    {
-        title: "Export Plus Service Center",
-        subtitle: "مرکز خدمات +Export",
-        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها",
-        isNew: false,
-        btnTitle: "اطلاعات بیشتر",
-        img: "/images/services/export_service_center.png",
-        href: "/services/service_center"
-    },
-    {
-        title: "FAQ",
-        subtitle: "سوالات متداول",
-        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها",
-        isNew: false,
-        btnTitle: "مطالعات بیشتر",
-        img: "/images/services/FAQ-1.png",
-        href: "/services/faq"
-    },
-    {
-        title: "IDEA Accelerator",
-        subtitle: "مرکز رشد ایده ها",
-        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها",
-        isNew: false,
-        btnTitle: "اطلاعات بیشتر",
-        img: "/images/services/Idea.png",
-        href: "/services/idea_accelerator"
-    },
-    {
-        title: "The Peaceful World",
-        subtitle: "مشارکت در برند ملی",
-        description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها",
-        isNew: false,
-        btnTitle: "اطلاعات بیشتر",
-        img: "/images/services/TPW.png",
-        href: "/services/peaceful_world"
-    },
-];
+// const ServicesInfo: ServiceProps[] = [
+//     {
+//         title: "صفر تا صد صادرات در 10 گام",
+//         subtitle: "Export Training",
+//         description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها",
+//         isNew: false,
+//         btnTitle: "شروع مطالعه",
+//         img: "/images/services/10-Steps.png",
+//         href: "/services/export_training",
+//     },
+//     {
+//         title: "Export Knowledge Assessment",
+//         subtitle: "ارزیابی دانش صادراتی",
+//         description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها",
+//         isNew: false,
+//         btnTitle: "شروع آزمون",
+//         img: "/images/services/assessments.png",
+//         href: "/services/export_knowledge_assessment"
+//     },
+//     {
+//         title: "Export Plus Service Center",
+//         subtitle: "مرکز خدمات +Export",
+//         description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها",
+//         isNew: false,
+//         btnTitle: "اطلاعات بیشتر",
+//         img: "/images/services/export_service_center.png",
+//         href: "/services/service_center"
+//     },
+//     {
+//         title: "FAQ",
+//         subtitle: "سوالات متداول",
+//         description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها",
+//         isNew: false,
+//         btnTitle: "مطالعات بیشتر",
+//         img: "/images/services/FAQ-1.png",
+//         href: "/services/faq"
+//     },
+//     {
+//         title: "IDEA Accelerator",
+//         subtitle: "مرکز رشد ایده ها",
+//         description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها",
+//         isNew: false,
+//         btnTitle: "اطلاعات بیشتر",
+//         img: "/images/services/Idea.png",
+//         href: "/services/idea_accelerator"
+//     },
+//     {
+//         title: "The Peaceful World",
+//         subtitle: "مشارکت در برند ملی",
+//         description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها",
+//         isNew: false,
+//         btnTitle: "اطلاعات بیشتر",
+//         img: "/images/services/TPW.png",
+//         href: "/services/peaceful_world"
+//     },
+// ];
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Services = () => {
     const servicesRef = useRef<HTMLDivElement|null>(null);
+    const { active, progress } = useProgress();
     // const serviceContaicerRef = useRef<HTMLDivElement|null>(null);
     useGSAP(() => {
         // const windowWidth = window.innerWidth;
@@ -136,6 +143,18 @@ const Services = () => {
         <div className="w-[400vw] h-[100vh] flex justify-normal items-center z-[90]" ref={servicesRef}>
             <div className="w-[100vw] h-full flex justify-center items-center p-[12rem]" id="education">
                 <div className="w-full h-[110%]">
+                    {active && (
+                    <div
+                    style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        zIndex: 1,
+                    }}>
+                        <CircularProgress value={progress} />
+                    </div>
+                    )}
                     <Canvas className="overflow-visible" camera={{ position: [2, 1, 0.24], rotation: [0, 0, 0] }}>
                         <Center>
                             <Service1 rotation={[degToRad(0), degToRad(-25), degToRad(5)]} />
@@ -164,9 +183,22 @@ const Services = () => {
             </div>
             <div className="w-[100vw] h-full flex justify-center items-center p-[12rem]" id="askQuestions">
                 <div className="w-full h-[140%]">
+                    {active && (
+                    <div
+                    style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        zIndex: 1,
+                    }}>
+                        <CircularProgress value={progress} />
+                    </div>
+                    )}
                     <Canvas className="overflow-visible" camera={{ position: [2.5, 0, 0.24], rotation: [0, 0, 0] }}>
                         <Center>
-                            <Chat rotation={[degToRad(0), degToRad(100), degToRad(0)]} />
+                            {/* <Chat rotation={[degToRad(0), degToRad(100), degToRad(0)]} /> */}
+                            <ChatBubble rotation={[degToRad(0), degToRad(90), degToRad(0)]} />
                         </Center>
                         <OrbitControls minPolarAngle={degToRad(40)} maxPolarAngle={degToRad(120)} minAzimuthAngle={degToRad(80)} maxAzimuthAngle={degToRad(120)} enableZoom={false} />
                         <ambientLight intensity={1} />
@@ -197,6 +229,18 @@ const Services = () => {
             </div>
             <div className="w-[100vw] h-full flex justify-center items-center p-[12rem]" id="exportServices">
                 <div className="w-full h-[110%]">
+                    {active && (
+                    <div
+                    style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        zIndex: 1,
+                    }}>
+                        <CircularProgress value={progress} />
+                    </div>
+                    )}
                     <Canvas className="overflow-visible" camera={{ position: [4, 2, 0.24], rotation: [0, 0, 0] }}>
                         <Center>
                             <Service3 rotation={[degToRad(0), degToRad(-10), degToRad(0)]} />
@@ -222,14 +266,27 @@ const Services = () => {
             </div>
             <div className="w-[100vw] h-full flex justify-center items-center p-[12rem]" id="ai">
                 <div className="w-full h-[140%]">
+                    {active && (
+                    <div
+                    style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        zIndex: 1,
+                    }}>
+                        <CircularProgress value={progress} />
+                    </div>
+                    )}
                     <Canvas className="overflow-visible" camera={{ position: [5.8, 2, 0.24], rotation: [0, 0, 0], fov: 50 }}>
                         <Center>
-                            <Ai rotation={[degToRad(0), degToRad(10), degToRad(0)]} />
+                            {/* <Ai rotation={[degToRad(0), degToRad(10), degToRad(0)]} /> */}
+                            <AiHolo rotation={[degToRad(0), degToRad(-190), degToRad(0)]} scale={4} />
                         </Center>
                         <OrbitControls enableZoom={false} enablePan={false} />
-                        <ambientLight intensity={1} />
+                        <ambientLight intensity={2} />
                         <directionalLight intensity={1} position={[3, 3, 3]} />
-                        <directionalLight intensity={1} position={[3, 3, -3]} />
+                        <directionalLight intensity={1} position={[3, -3, -3]} />
                     </Canvas>
                 </div>
                 <div className="w-full h-full flex flex-col justify-center items-end gap-4">

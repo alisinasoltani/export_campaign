@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { SessionProvider } from 'next-auth/react';
-import { auth } from '@/auth';
+// import { SessionProvider } from 'next-auth/react';
+// import { auth } from '@/auth';
 
 
 export const metadata: Metadata = {
@@ -15,14 +15,14 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await auth();
+  // const session = await auth();
   return (
-    <SessionProvider session={session}>
+    // <SessionProvider session={session}>
       <html lang="fa">
         <body>
           {children}
         </body>
       </html>
-    </SessionProvider>
+    // </SessionProvider>
   );
 }
