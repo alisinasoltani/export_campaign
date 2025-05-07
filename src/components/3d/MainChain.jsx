@@ -6,85 +6,96 @@ import { useGSAP } from '@gsap/react';
 import { useFrame } from "@react-three/fiber";
 import { useMemo } from 'react';
 
-export default function ValueChain({active, rotation, scale, position}) {
+export default function ValueChain({active, rotation, scale, position, scrollOffset}) {
     const group = useRef();
     const earthRef = useRef();
     const { nodes, materials, animations } = useGLTF('/models/MainChain2.glb')
     const material = materials['Material.001'];
     const progressRef = useRef(0);
     const shaderRef = useRef(null);
+    const roadRef = useRef();
 
     const memoPosition = useMemo(() => position, [position.toString()])
     const memoRotation = useMemo(() => rotation, [rotation.toString()])
     const memoScale = useMemo(() => scale, [scale.toString()])
 
-    useEffect(() => {
-        material.onBeforeCompile = (shader) => {
-          // Add progress uniform
-          shader.uniforms.progress = { value: 0 }
-    
-          // Modify vertex shader to pass UV coordinates
-          shader.vertexShader = `
-            varying vec2 vUv;
-            ${shader.vertexShader}
-          `
-          shader.vertexShader = shader.vertexShader.replace(
-            'void main() {',
-            'void main() {\n  vUv = uv;'
-          )
-    
-          // Modify fragment shader to use progress and vUv
-          shader.fragmentShader = `
-            uniform float progress;
-            varying vec2 vUv;
-            ${shader.fragmentShader}
-          `
-          shader.fragmentShader = shader.fragmentShader.replace(
-            '#include <clipping_planes_fragment>',
-            `
-            if (vUv.x > progress) discard;
-            #include <clipping_planes_fragment>
-            `
-          )
-          shaderRef.current = shader
-        }
-        material.needsUpdate = true
-    }, [material])
+  useEffect(() => {
+    if (roadRef.current) {
+      const mat = materials['road'];
+      console.log('UV attribute:', roadRef.current.geometry.attributes.uv);
+      mat.onBeforeCompile = (shader) => {
+        shader.uniforms.progress = { value: 0 };
 
-    
-    useFrame((state, delta) => {
-    if (progressRef.current < 1) {
+        shader.vertexShader = `
+          varying vec2 vUv;
+          ${shader.vertexShader}
+        `;
+        shader.vertexShader = shader.vertexShader.replace(
+          'void main() {',
+          'void main() {\n  vUv = uv;'
+        );
+
+        shader.fragmentShader = `
+          uniform float progress;
+          varying vec2 vUv;
+          ${shader.fragmentShader}
+        `;
+        shader.fragmentShader = shader.fragmentShader.replace(
+          '#include <clipping_planes_fragment>',
+          `
+          if (vUv.x > progress) discard;
+          #include <clipping_planes_fragment>
+          `
+        );
+        // shader.fragmentShader = shader.fragmentShader.replace(
+        //   '#include <clipping_planes_fragment>',
+        //   `
+        //   gl_FragColor = vec4(vUv.x, vUv.y, 0.0, 1.0);
+        //   #include <clipping_planes_fragment>
+        //   `
+        // );
+        shaderRef.current = shader;
+      };
+      mat.needsUpdate = true;
+    }
+  }, []);
+  useFrame((state, delta) => {
+    if (!active && progressRef.current < 1) {
         progressRef.current += delta * 0.3
         if (progressRef.current > 1) progressRef.current = 1
     }
     if (shaderRef.current) {
         shaderRef.current.uniforms.progress.value = progressRef.current
     }
-    });
-    const { actions } = useAnimations(animations, group);
-    
-    useEffect(() => {
-      Object.values(actions).forEach((action) => action.play());
-    }, [actions]);
-    useFrame((state, delta) => {
+  });
+  const { actions } = useAnimations(animations, group);
+  useEffect(() => {
+    Object.values(actions).forEach((action) => action.play());
+  }, [actions]);
+  useFrame((state, delta) => {
     if (earthRef.current) {
         earthRef.current.rotation.y += 0.002;
     }
-    });
+  });
+  // useFrame(() => {
+  //   if (group.current) {
+  //     const newX = group.current.position.x - scrollOffset;
+  //     // Clamp the x-position to not go below -5
+  //     group.current.position.x = Math.max(newX, -8);
+  //   }
+  // });
     
-    useGSAP(() => {
-      if (!active && group.current) {
-          const initialY = -5;
-          gsap.to(group.current.position, {
-              x: initialY + 6,
-              duration: 10,
-              ease: 'power4.inOut',
-              repeat: 0, // Play once
-          });
-      }
+  useGSAP(() => {
+    if (!active && group.current) {
+      const initialY = -5;
+      gsap.to(group.current.position, {
+        x: initialY + 6,
+        duration: 10,
+        ease: 'power4.inOut',
+        repeat: 0, // Play once
+      });
+    }
   }, [active]);
-
-    console.log(memoPosition, memoRotation, memoScale);
     
   return (
     <group ref={group} position={memoPosition} rotation={memoRotation} scale={memoScale} dispose={null}>
@@ -593,7 +604,8 @@ export default function ValueChain({active, rotation, scale, position}) {
           castShadow
           receiveShadow
           geometry={nodes.road2.geometry}
-          material={material}
+          material={materials['road']}
+          ref={roadRef}
         />
         <group
           name="Sketchfab_model"
